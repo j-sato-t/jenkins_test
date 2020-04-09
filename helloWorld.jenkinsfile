@@ -2,6 +2,7 @@ pipeline{
 	parameters{
 		choice(name: "choiceTest", choices: ["aaa", "bbb", "CcC"], description: "選択肢テスト")
 		string(name: "stringTest", defaultValue: "none", description: "文字列テスト")
+		booleanParam(name: "boolTest", defaultValue: false, description: "フラグテスト")
 	}
 	agent{
 		label "master"
@@ -39,6 +40,7 @@ pipeline{
 			steps{
 				echo "choice : ${params.choiceTest}"
 				echo "string : ${params.stringTest}"
+				echo "bool   : ${params.boolTest}"
 			}
 		}
 	}
