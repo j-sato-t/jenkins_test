@@ -28,7 +28,9 @@ pipeline{
 			}
 		}
 		stage("get latest"){
-			git 'https://github.com/j-sato-t/jenkins_test.git'
+			steps{
+				git 'https://github.com/j-sato-t/jenkins_test.git'
+			}
 		}
 		stage("node test"){
 			steps{
