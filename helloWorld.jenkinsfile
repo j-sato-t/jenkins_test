@@ -8,7 +8,7 @@ pipeline{
 	agent{
 		label "master"
 	}
-	node{
+	stages{
 		stage("disp test"){
 			steps{
 				sh "pwd"
@@ -45,7 +45,7 @@ pipeline{
 			}
 		}
 		stage("outer execute"){
-			def outer = load("${env.WORKSPACE}/outerfunc.groovy")
+			outer = load 'outerfunc.groovy'
 			outer.outerTest("aaa")
 		}
 	}
