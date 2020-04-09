@@ -1,5 +1,4 @@
 pipeline{
-	def outer
 
 	parameters{
 		choice(name: "choiceTest", choices: ["aaa", "bbb", "CcC"], description: "選択肢テスト")
@@ -45,10 +44,8 @@ pipeline{
 				echo "bool   : ${params.boolTest}"
 			}
 		}
-		stage("outer load"){
-			outer = load "outerfunc.groovy"
-		}
 		stage("outer execute"){
+			def outer = load("${env.WORKSPACE}/outerfunc.groovy")
 			outer.outerTest("aaa")
 		}
 	}
