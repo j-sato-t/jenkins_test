@@ -1,5 +1,5 @@
 def outerTest(message){
-	echo '${message}'
+	echo ${message}
 }
 
 
