@@ -55,15 +55,15 @@ pipeline{
 		}
 	}
 	post{
-		always{
-			echo "========always========"
-			cleanWs notFailBuild: true
-		}
 		success{
 			echo "========pipeline executed successfully ========"
 		}
 		failure{
 			echo "========pipeline execution failed========"
+		}
+		always{
+			echo "========always========"
+			cleanWs notFailBuild: true
 		}
 	}
 }
