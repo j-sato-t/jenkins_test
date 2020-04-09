@@ -36,7 +36,7 @@ pipeline{
 		}
 		stage("param test"){
 			steps{
-				echo "choice : ${params.choiciTest}"
+				echo "choice : ${params.choiceTest}"
 			}
 		}
 	}
