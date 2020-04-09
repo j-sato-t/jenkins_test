@@ -26,6 +26,11 @@ pipeline{
 				sh "npm -v"
 			}
 		}
+		stage("node script"){
+			steps{
+				sh "node node_tester.js"
+			}
+		}
 	}
 	post{
 		always{
