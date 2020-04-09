@@ -1,6 +1,7 @@
 pipeline{
 	parameters{
 		choice(name: "choiceTest", choices: ["aaa", "bbb", "CcC"], description: "選択肢テスト")
+		string(name: "stringTest", defaultValue: "none", description: "文字列テスト")
 	}
 	agent{
 		label "master"
@@ -37,6 +38,7 @@ pipeline{
 		stage("param test"){
 			steps{
 				echo "choice : ${params.choiceTest}"
+				echo "string : ${params.stringTest}"
 			}
 		}
 	}
