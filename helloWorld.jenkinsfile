@@ -8,7 +8,7 @@ pipeline{
 	agent{
 		label "master"
 	}
-	stages{
+	node{
 		stage("disp test"){
 			steps{
 				sh "pwd"
