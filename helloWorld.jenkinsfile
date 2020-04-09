@@ -3,7 +3,7 @@ pipeline{
 		label "master"
 	}
 	stages{
-		stage("A"){
+		stage("disp test"){
 			steps{
 				sh "pwd"
 				echo "hello world"
@@ -18,6 +18,12 @@ pipeline{
 				failure{
 					echo "========A execution failed========"
 				}
+			}
+		}
+		stage("node test"){
+			steps{
+				sh "node -v"
+				sh "npm -v"
 			}
 		}
 	}
