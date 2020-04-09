@@ -53,6 +53,12 @@ pipeline{
 				}
 			}
 		}
+		stage("hold items"){
+			steps{
+				sh 'echo "target data" > target.dat'
+				archiveArtifacts 'target.dat'
+			}
+		}
 	}
 	post{
 		success{
