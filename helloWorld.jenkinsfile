@@ -1,6 +1,6 @@
 pipeline{
 	parameters{
-		choice(name:choiceTest, choices: ["aaa", "bbb", "CcC"], defaultValue: "aaa", description: "選択肢テスト")
+		choice(name:choiceTest, choices: ["aaa", "bbb", "CcC"], description: "選択肢テスト")
 	}
 	agent{
 		label "master"
