@@ -45,8 +45,10 @@ pipeline{
 			}
 		}
 		stage("outer execute"){
-			outer = load 'outerfunc.groovy'
-			outer.outerTest("aaa")
+			steps{
+				def outer = load 'outerfunc.groovy'
+				outer.outerTest("aaa")
+			}
 		}
 	}
 	post{
