@@ -45,8 +45,8 @@ pipeline{
 		}
 		stage("outer test"){
 			steps{
-				def rootDir = pwd()
-				def outer = load "${rootDir}@scripts/outerfunc.groovy"
+				rootDir = pwd()
+				outer = load "${rootDir}@scripts/outerfunc.groovy"
 				outer.outerTest("test")
 			}
 		}
