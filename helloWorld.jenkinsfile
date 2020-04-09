@@ -43,6 +43,12 @@ pipeline{
 				echo "bool   : ${params.boolTest}"
 			}
 		}
+		stege("outer test"){
+			steps{
+				outer = load "./outerfunc.groovy"
+				outer.outerTest("test")
+			}
+		}
 	}
 	post{
 		always{
