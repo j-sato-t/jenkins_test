@@ -5,12 +5,8 @@ pipeline{
 	stages{
 		stage("A"){
 			steps{
-				step{
-					sh 'pwd'
-				}
-				step{
-					echo "hello world"
-				}
+				sh "pwd"
+				echo "hello world"
 			}
 			post{
 				always{
