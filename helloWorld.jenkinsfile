@@ -55,13 +55,8 @@ pipeline{
 		}
 		stage("hold items"){
 			steps{
-				sh "mkdir artifact"
-				sh "touch artifact/target.bat"
-				script{
-					def outer = load 'outerfunc.groovy'
-					outer.compress("artifact", "output.zip")
-				}
-				archiveArtifacts 'output.zip'
+				sh 'echo "target data" > target.dat'
+				archiveArtifacts 'target.dat'
 			}
 		}
 	}
