@@ -1,4 +1,4 @@
-def outerTest(message){
+def outerTest(String message){
 	echo message
 }
 
