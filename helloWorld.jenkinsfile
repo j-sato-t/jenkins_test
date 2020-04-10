@@ -65,9 +65,11 @@ pipeline{
 				sh 'mkdir artifacts'
 				sh 'echo "target data" > artifacts/target.txt'
 				script{
-					new AntBuilder().zip(destfile: "artifact.zip", basedir: "artifacts");
+					def dest = "${pwd()}/artifact.zip"
+					def base = "${pwd()}/artifacts"
+					new AntBuilder().zip(destfile: dest, basedir: base);
+					archiveArtifacts dest
 				}
-				archiveArtifacts 'artifact.zip'
 			}
 		}
 	}
