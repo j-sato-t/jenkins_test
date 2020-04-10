@@ -81,7 +81,7 @@ pipeline{
 	- 成果物を保存する
 		- ワークスペースのクリアを行ってもこれで指定したものは残せる
 		- 保存した成果物はジョブのページからDLできる
-	- ex : `archiveArtifacts result.dat`
+	- ex : `archiveArtifacts "result.dat"`
 
 ※stages外postに記述
 - `cleanWs`
@@ -119,3 +119,32 @@ script{
 
 - stepsを書かずに処理を書く
 - scriptを書かずにdef等が必要な処理を書く
+
+## 成果物をzipにまとめる
+
+- 成果物をまとめてDLするなどができる
+- AntBuilderを使う
+```groovy
+script{
+	def dest = "${pwd()}/artifact.zip"
+	def base = "${pwd()}/artifacts"
+
+	// artifactsフォルダをartifact.zipにまとめる
+	new AntBuilder().zip(destfile: dest, basedir: base);
+
+	// まとめたzipを成果物として保存する
+	archiveArtifacts "artifact.zip"
+}
+```
+
+- GroovySandboxが有効だと使えない？
+	- PipelineScriptFromSCM だと必ずSandboxを使う
+	- pipelineScript にしてSandboxを切る
+```groovy
+node {
+	// Jenkinsfileのあるリポジトリをclone
+    git 'https://github.com/j-sato-t/jenkins_test.git'
+	// リポジトリ内のパイプラインを実行
+    load 'helloWorld.jenkinsfile'
+}
+```
