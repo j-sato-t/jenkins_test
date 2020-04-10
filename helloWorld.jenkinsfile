@@ -60,8 +60,14 @@ pipeline{
 		}
 		stage("hold items"){
 			steps{
-				sh 'echo "target data" > target.dat'
-				archiveArtifacts 'target.dat'
+				// sh 'echo "target data" > target.dat'
+				// archiveArtifacts 'target.dat'
+				sh 'mkdir artifacts'
+				sh 'echo "target data" > artifacts/target.txt'
+				script{
+					new AntBuilder().zip("artifact.zip", "artifacts");
+				}
+				archiveArtifacts 'artifact.zip'
 			}
 		}
 	}
