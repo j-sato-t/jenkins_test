@@ -11,7 +11,9 @@ pipeline{
 	}
 	stages{
 		stage("clear ws"){
-			cleanWs
+			steps{
+				cleanWs
+			}
 		}
 		stage("disp test"){
 			steps{
