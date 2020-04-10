@@ -53,7 +53,7 @@ pipeline{
 		stage("outer execute"){
 			steps{
 				script{
-					def outer = load '${pwd()}/outerfunc.groovy'
+					def outer = load 'outerfunc.groovy'
 					outer.outerTest(params.funcEcho)
 				}
 			}
