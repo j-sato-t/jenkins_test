@@ -105,6 +105,10 @@ def function(arg) {
 // 自身を返す
 return this
 ```
+- 型を明示的に定義すると使うときに楽？
+	- `void function(Integer arg)`
+	- `Double`
+	- `String`
 
 #### 外部ファイルのロード&実行
 
