@@ -10,6 +10,9 @@ pipeline{
 		label "master"
 	}
 	stages{
+		stage("clear ws"){
+			cleanWs
+		}
 		stage("disp test"){
 			steps{
 				sh "pwd"
@@ -80,7 +83,6 @@ pipeline{
 		}
 		always{
 			echo "========always========"
-			cleanWs notFailBuild: true
 		}
 	}
 }
