@@ -10,11 +10,6 @@ pipeline{
 		label "master"
 	}
 	stages{
-		stage("clear ws"){
-			steps{
-				cleanWs
-			}
-		}
 		stage("disp test"){
 			steps{
 				sh "pwd"
