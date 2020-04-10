@@ -68,7 +68,7 @@ pipeline{
 					def dest = "${pwd()}/artifact.zip"
 					def base = "${pwd()}/artifacts"
 					new AntBuilder().zip(destfile: dest, basedir: base);
-					archiveArtifacts artifact.zip
+					archiveArtifacts "artifact.zip"
 				}
 			}
 		}
