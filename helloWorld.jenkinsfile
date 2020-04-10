@@ -76,6 +76,7 @@ pipeline{
 	post{
 		success{
 			echo "========pipeline executed successfully ========"
+			cleanWs notFailBuild: true
 		}
 		failure{
 			echo "========pipeline execution failed========"
